@@ -25,6 +25,8 @@ mongoose.connection.on('error', (err) => {
 
 const app = express();
 
+const PORT = 3000;
+
 // users
 const users = require("./routes/users");
 
@@ -73,6 +75,6 @@ var dreams = [
 ];
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
