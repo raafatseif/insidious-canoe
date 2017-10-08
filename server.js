@@ -7,8 +7,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
-const mongoose = require('mongoose');
+const env = require('dotenv').config();
 const config = require('./config/database');
+const mongoose = require('mongoose');
 
 // Connect to the db
 mongoose.connect(config.database);
