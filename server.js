@@ -16,7 +16,7 @@ mongoose.connect(config.database);
 
 // On connection
 mongoose.connection.on('connected', () => {
-  console.log('Connected to database ' + config.database);
+  console.log('Connected to database');
 });
 
 // On error
@@ -35,7 +35,7 @@ const users = require("./routes/users");
 app.use(cors());
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use(express.static('ng_public'));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -58,22 +58,10 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/dreams", function (request, response) {
-  response.send(dreams);
+// Make sure any other route is sent to index.html
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, 'ng_public/index.html'));
 });
-
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", function (request, response) {
-  dreams.push(request.query.dream);
-  response.sendStatus(200);
-});
-
-// Simple in-memory store for now
-var dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
 
 // listen for requests :)
 var listener = app.listen(PORT, function () {
