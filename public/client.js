@@ -1,7 +1,5 @@
-//console.log('hi');
-
 // I hope I can fix this mess with angular...
-// Bug: 
+// Bug:
 // Given Dashboard home page
 // when the menu bar is clicked
 // It hides the sidebar
