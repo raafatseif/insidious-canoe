@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server.js"
   },
+  "private": true,
   "author": "Raafat Seif",
   "dependencies": {
     "bcryptjs": "^2.4.3",
