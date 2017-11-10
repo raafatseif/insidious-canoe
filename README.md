@@ -16,3 +16,11 @@ CSS files add styling rules to your content
 
 If you're feeling fancy you can add interactivity to your site with Javascript
 
+## Running the containers
+### express-node
+docker run -d --name express-node -p 3000:3000 express-node:dev
+docker stop express-node
+docker start express-node
+
+### angular-client
+docker run -d --name angular-client -p 4200:4200 angular-client:dev
