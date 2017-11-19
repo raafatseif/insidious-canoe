@@ -1,1 +1,13 @@
+sudo: required
+
 language: node_js
+
+node_js:
+  - "8"
+
+services:
+  - docker
+
+script:
+  - docker-compose build
+  - docker-compose run test
