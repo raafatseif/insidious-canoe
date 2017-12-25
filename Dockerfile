@@ -31,7 +31,8 @@ RUN npm install -g @angular/cli --unsafe
 
 # TODO prep the angular, without serving?
 # TODO  
-# aot to fix bug: Property 'authService' is private and only accessible within class 'NavbarComponent'.
+# BUG: Property 'authService' is private and only accessible within class 'NavbarComponent'. FIX  add aot to build command
+# BUG: `ng build` fails with error `Cannot find module 'webpack/lib/node/NodeTemplatePlugin'` FIX remove package-lock.json
 RUN cd angular-src && ng build --prod --aot=false
 
 # TODO move angular to public
@@ -41,5 +42,7 @@ RUN cd angular-src && ng build --prod --aot=false
 EXPOSE 3000
 
 # Serve the app
-#CMD ["npm", "start"]
-RUN cd express-node && npm start
+#RUN cd express-node && npm start
+# Using RUN runs npm start in docker build, while CMD runs at docker run
+WORKDIR express-node
+CMD ["npm", "start"]
