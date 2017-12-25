@@ -9,21 +9,37 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy dependency definitions
-COPY package.json /usr/src/app
-
-# Install dependecies
-RUN npm install
+#COPY package.json /usr/src/app
 
 # Get all the code needed to run the app
+# TODO make sure it does not copy node_modules
 COPY . /usr/src/app
+
+# Install dependecies
+RUN cd express-node && npm install
+RUN cd angular-src && npm install
+
+# Bug: install before angular cli
+#RUN npm install --unsafe-perm --verbose -g sails
+
+# Install angular cli
+#RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli --unsafe
+
+# Get all the code needed to run the app
+#COPY . /usr/src/app
+
+# TODO prep the angular, without serving?
+# TODO  
+# aot to fix bug: Property 'authService' is private and only accessible within class 'NavbarComponent'.
+RUN cd angular-src && ng build --prod --aot=false
+
+# TODO move angular to public
+# Maybe no need since it is done in output directory in angular-cli.json
 
 # Expose the port the app runs in
 EXPOSE 3000
 
-# TODO prep the angular, without serving?
-#RUN "ng build --prod"
-
-# TODO move angular to public
-
 # Serve the app
 #CMD ["npm", "start"]
+RUN cd express-node && npm start

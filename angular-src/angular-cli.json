@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../ng_public",
+      "outDir": "../express-node/ng_public",
       "assets": [
         "assets",
         "favicon.ico"
