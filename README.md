@@ -22,6 +22,8 @@ docker-compose up
 
 ## Individual containers
 ### express-node
+docker build -t express-node:dev .
+
 docker run -d --name express-node -p 3000:3000 express-node:dev
 
 docker stop express-node
