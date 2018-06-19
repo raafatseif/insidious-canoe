@@ -7,7 +7,9 @@
   "description": "MEAN Stack dashboard app",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Raafat Seif",
   "dependencies": {
@@ -19,7 +21,8 @@
     "jsonwebtoken": "^8.0.1",
     "mongoose": "^4.11.13",
     "passport": "^0.4.0",
-    "passport-jwt": "^3.0.0"
+    "passport-jwt": "^3.0.0",
+    "snyk": "^1.83.0"
   },
   "engines": {
     "node": "8.x"
@@ -33,5 +36,6 @@
     "glitch",
     "express",
     "MEAN"
-  ]
+  ],
+  "snyk": true
 }
