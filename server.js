@@ -67,3 +67,16 @@ app.get('*', (request, response) => {
 var listener = app.listen(PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
+
+function foo(){
+  return 5
+}
+
+let myVar = foo;
+
+console.log(myVar);
+console.log("semaaaaaw");
+
+var n1 = new Number(3);
+console.log(n1);
