@@ -85,12 +85,8 @@ div#container {
   font-size: 0.8em;
 }
 
-ul#nav {
-  
-}
-
 ul#nav li {
-  list-style:none; /* Why? */
+  list-style:none; /* Why? Because it is the type of bullet ,disc, circle, square,or none */
 }
 
 ul#nav li a {
